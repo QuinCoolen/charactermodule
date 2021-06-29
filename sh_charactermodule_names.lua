@@ -27,7 +27,7 @@ end
 -- Shamelessly stolen from https://steamcommunity.com/sharedfiles/filedetails/?id=659490574
 if CLIENT then
 	function parseChat(ply, msg)
-		chat.AddText(Color(255, 255, 255, 255), plyMeta:GetName(), color_white, ": ", msg )
+		chat.AddText(Color(255, 255, 255, 255), plyMeta:Nick(), color_white, ": ", msg )
 		chat.PlaySound()
 		return true
 	end
