@@ -86,6 +86,11 @@ local function OpenCharMenu()
     CreateCharButton.DoClick = function()
         if charInfo.model == nil || charInfo.name == nil then -- checks if all required information is filled out via the table
             liro.diagnosticPrint("Something went wrong while creating your character")
+        elseif charInfoDesc == nil then
+            CharFrame:Close()
+            net.Start("CreateChar")
+            net.WriteTable(charInfo)
+            net.SendToServer()
         else
             CharFrame:Close()
             net.Start("CreateChar")
