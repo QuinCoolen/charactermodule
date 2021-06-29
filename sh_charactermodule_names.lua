@@ -1,7 +1,7 @@
 local plyMeta = FindMetaTable("Player")
 
 function plyMeta:Nick()
-    return self:GetNWString("Nickname", false) or self:Nick()
+    return self:GetNWString("Nickname", self:GetName())
 end
 
 function plyMeta:SetName(name)
@@ -18,16 +18,11 @@ end
 
 -- Shamelessly stolen from https://steamcommunity.com/sharedfiles/filedetails/?id=659490574
 if CLIENT then
-	function parseChat(ply, msg)
-		chat.AddText(Color(255, 255, 255, 255), ply, color_white, ": ", msg )
-		chat.PlaySound()
-		return true
-	end
-	timer.Simple( 5, function()
-		
-		if hook.GetTable()["OnPlayerChat"] then
-		else
-			hook.Add( "OnPlayerChat", "NickName_ChatFix", parseChat )
-		end
+	timer.Simple( 5, function()	
+		hook.Add( "OnPlayerChat", "NickName_ChatFix", function(ply, msg)
+			chat.AddText(Color(255, 255, 255, 255), ply:Nick(), color_white, ": ", msg )
+			chat.PlaySound()
+			return true
+		end)
 	end)
 end
