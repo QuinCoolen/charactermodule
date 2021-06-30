@@ -1,7 +1,7 @@
 util.AddNetworkString("CreateChar")
 
 net.Receive("CreateChar", function(len, ply)
-    
+
 	local charInfo = net.ReadTable()
     local charInfoDesc = net.ReadString()
     ply:SetModel(charInfo.model)
