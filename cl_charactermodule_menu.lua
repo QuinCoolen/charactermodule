@@ -1,13 +1,21 @@
 local function OpenCharMenu()
     local width, height = ScrW(), ScrH()
+
     local models = {
         "models/player/alyx.mdl",
         "models/player/eli.mdl",
         "models/player/odessa.mdl",
         "models/player/arctic.mdl",
         "models/player/leet.mdl",
-        "models/player/arctic.mdl",
         "models/player/mossman_arctic.mdl"
+    }
+
+    local classes = {
+        terrorist = {
+            name = "Terrorist",
+            weapons = {"weapon_smg1", "weapon_pistol", "weapon_rpg"},
+            color = Color(0, 0, 0, 255)
+        }
     }
 
     local charInfo = {
