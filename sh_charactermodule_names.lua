@@ -1,8 +1,13 @@
 local plyMeta = FindMetaTable("Player")
 
-function plyMeta:Nick()
+function plyMeta:Nick() -- For everything except kill feed
     return self:GetNWString("Nickname", self:GetName())
 end
+
+function plyMeta:Name() -- For kill feed 
+    return self:GetNWString("Nickname", self:GetName())
+end
+
 
 function plyMeta:SetName(name)
     self:SetNWString("Nickname", name)
