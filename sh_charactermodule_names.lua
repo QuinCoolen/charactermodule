@@ -21,7 +21,6 @@ function plyMeta:SetDesc(desc)
     self:SetNWString("Description", desc)
 end
 
--- Shamelessly stolen from https://steamcommunity.com/sharedfiles/filedetails/?id=659490574
 if CLIENT then
 	timer.Simple( 5, function()	
 		hook.Add( "OnPlayerChat", "NickName_ChatFix", function(ply, msg)
