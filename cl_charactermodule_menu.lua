@@ -10,14 +10,6 @@ local function OpenCharMenu()
         "models/player/mossman_arctic.mdl"
     }
 
-    local classes = {
-        terrorist = {
-            name = "Terrorist",
-            weapons = {"weapon_smg1", "weapon_pistol", "weapon_rpg"},
-            color = Color(0, 0, 0, 255)
-        }
-    }
-
     local charInfo = {
         "model",
         "name"
