@@ -10,9 +10,26 @@ local function OpenCharMenu()
         "models/player/mossman_arctic.mdl"
     }
 
+<<<<<<< HEAD
+=======
+    local classes = {
+        rebel = {
+            name = "Rebel",
+            weapons = {"weapon_smg1", "weapon_pistol", "weapon_rpg"},
+            color = Color(50, 255, 50, 255)
+        },
+        combine = {
+            name = "Combine".
+            weapons = {"weapon_ar2", "weapon_shotgun"},
+            color = Color(50, 50, 255, 255)
+        }
+    }
+
+>>>>>>> 55a2d17de2667e680bae23ac63d16264ff4b412d
     local charInfo = {
         "model",
-        "name"
+        "name",
+        "class"
     }
 
     local CharFrame = vgui.Create("DFrame")
@@ -84,7 +101,7 @@ local function OpenCharMenu()
     CreateCharButton:SetSize(100, 50)
     CreateCharButton:SetPos(width / 2 - 50, height - 100)
     CreateCharButton.DoClick = function()
-        if charInfo.model == nil || charInfo.name == nil then -- checks if all required information is filled out via the table
+        if for k in (charInfo) do charInfo.k end then --UNTESTED | Checks if all required information is filled in
             liro.diagnosticPrint("Something went wrong while creating your character")
         elseif charInfoDesc == nil then
             CharFrame:Close()
