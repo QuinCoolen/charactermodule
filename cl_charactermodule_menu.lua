@@ -10,26 +10,9 @@ local function OpenCharMenu()
         "models/player/mossman_arctic.mdl"
     }
 
-<<<<<<< HEAD
-=======
-    local classes = {
-        rebel = {
-            name = "Rebel",
-            weapons = {"weapon_smg1", "weapon_pistol", "weapon_rpg"},
-            color = Color(50, 255, 50, 255)
-        },
-        combine = {
-            name = "Combine".
-            weapons = {"weapon_ar2", "weapon_shotgun"},
-            color = Color(50, 50, 255, 255)
-        }
-    }
-
->>>>>>> 55a2d17de2667e680bae23ac63d16264ff4b412d
     local charInfo = {
         "model",
         "name",
-        "class"
     }
 
     local CharFrame = vgui.Create("DFrame")
