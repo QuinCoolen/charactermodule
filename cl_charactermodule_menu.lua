@@ -84,7 +84,7 @@ local function OpenCharMenu()
     CreateCharButton:SetSize(100, 50)
     CreateCharButton:SetPos(width / 2 - 50, height - 100)
     CreateCharButton.DoClick = function()
-        if for k in (charInfo) do charInfo.k end then --UNTESTED | Checks if all required information is filled in
+        if not charInfo == nil then --UNTESTED | Checks if all required information is filled in
             liro.diagnosticPrint("Something went wrong while creating your character")
         elseif charInfoDesc == nil then
             CharFrame:Close()
