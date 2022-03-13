@@ -84,7 +84,7 @@ local function OpenCharMenu()
     CreateCharButton:SetSize(100, 50)
     CreateCharButton:SetPos(width / 2 - 50, height - 100)
     CreateCharButton.DoClick = function()
-        if not charInfo == nil then --UNTESTED | Checks if all required information is filled in
+        if (charInfo == nil) then --UNTESTED | Checks if all required information is filled in
             liro.diagnosticPrint("Something went wrong while creating your character")
         elseif charInfoDesc == nil then
             CharFrame:Close()
@@ -100,5 +100,20 @@ local function OpenCharMenu()
         end
     end
 end
-hook.Add("InitPostEntity", "OpenCharOnPlayer", OpenCharMenu)
+
+function GM:InitPostEntity()
+    if (charInfo == nil) then
+        OpenCharMenu()
+    else
+        net.Start("LoadChar")
+        net.SendToServer()
+    end
+end
+
+function DeleteCharacter()
+    net.Start("DeleteChar")
+    net.SendToServer()
+end
+
 concommand.Add("opencharmenu", OpenCharMenu)
+concommand.Add("deletecharacter", DeleteCharacter)

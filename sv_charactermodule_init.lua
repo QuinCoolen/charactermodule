@@ -1,12 +1,31 @@
 util.AddNetworkString("CreateChar")
+util.AddNetworkString("LoadChar")
+util.AddNetworkString("DeleteChar")
 
 net.Receive("CreateChar", function(len, ply)
-
 	local charInfo = net.ReadTable()
     local charInfoDesc = net.ReadString()
-    ply:SetModel(charInfo.model)
     ply:SetName(charInfo.name)
+    ply:SetModel(charInfo.model)
     ply:SetDesc(charInfoDesc)
     ply:ChatPrint(ply:Nick())
     ply:ChatPrint(ply:GetDesc())
+
+    ply:SetPData("Name", charInfo.name)
+    ply:SetPData("Model", charInfo.model)
+    ply:SetPData("Description", charInfoDesc)
+end)
+
+net.Receive("LoadChar", function(len, ply)
+        ply:SetName(ply:GetPData("Name", "TestName"))
+        ply:SetModel(ply:GetPData("Model", "models/player/alyx.mdl"))
+        ply:SetDesc(ply:GetPData("Description", "TestDesc"))
+        ply:ChatPrint(ply:Nick())
+        ply:ChatPrint(ply:GetDesc())
+end)
+
+net.Receive("DeleteChar", function(len, ply)
+    ply:RemovePData("Name")
+    ply:RemovePData("Model")
+    ply:RemovePData("Description")
 end)

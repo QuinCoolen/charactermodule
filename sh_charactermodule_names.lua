@@ -8,7 +8,6 @@ function plyMeta:Name() -- For kill feed
     return self:GetNWString("Nickname", self:GetName())
 end
 
-
 function plyMeta:SetName(name)
     self:SetNWString("Nickname", name)
 end
