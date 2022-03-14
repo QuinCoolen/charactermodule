@@ -76,7 +76,7 @@ local function OpenCharMenu()
     CharDescEntry:SetMultiline(true)
     CharDescEntry:SetSize(0, 100)
     CharDescEntry.OnLoseFocus = function( self )
-		charInfoDesc = self:GetValue() -- since this is optional it doesn't go into the tabel
+		charInfoDesc = self:GetValue() -- since this is optional it doesn't go into the table
 	end
 
     local CreateCharButton = vgui.Create("DButton", CharFrame)
