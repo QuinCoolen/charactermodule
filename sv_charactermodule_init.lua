@@ -1,7 +1,3 @@
-util.AddNetworkString("CreateChar")
-util.AddNetworkString("LoadChar")
-util.AddNetworkString("DeleteChar")
-
 net.Receive("CreateChar", function(len, ply)
 	local charInfo = net.ReadTable()
     local charInfoDesc = net.ReadString()

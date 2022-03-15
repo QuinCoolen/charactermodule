@@ -1,4 +1,4 @@
-local function OpenCharMenu()
+function OpenCharMenu()
     local width, height = ScrW(), ScrH()
 
     local models = {
